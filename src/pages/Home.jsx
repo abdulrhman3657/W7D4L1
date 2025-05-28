@@ -62,16 +62,16 @@ function Home() {
 
   return (
     <div className="bg-green-100 flex flex-col items-center justify-center">
-      <div className="flex flex-col gap-2 p-3">
+      <div className="flex  gap-2 p-3">
         <input
           type="text"
-          className="bg-gray-50 border m-3  border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
+          className="bg-gray-50 border   border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
           placeholder="Search"
           value={searchName}
           onChange={(e) => setSearchName(e.target.value)}
         />
         <button
-          className="rounded p-1 text-white bg-green-500 hover:bg-green-900 text-center"
+          className="rounded text-white bg-green-500 hover:bg-green-900 px-1 text-center"
           onClick={Search}
         >
           Search
