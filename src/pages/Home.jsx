@@ -25,21 +25,19 @@ function Home() {
         gender: gender,
       },
     }).then(() => {
-      // navigate("/")
       window.location.reload();
-      console.log("here");
     });
   };
 
   const Search = () => {
-    // console.log(searchName)
     let result = item.find((character) => {
       return character.name == searchName;
     });
 
     if (result) {
-      navigate(result.id)
-      console.log(result);
+      setItem([result])
+       // navigate(result.id);
+      // console.log(result);
     } else {
       Swal.fire({
         title: "oops!",
@@ -62,55 +60,59 @@ function Home() {
 
   return (
     <div className="bg-green-100 flex flex-col items-center justify-center">
-      <div className="flex  gap-2 p-3">
-        <input
-          type="text"
-          className="bg-gray-50 border   border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
-          placeholder="Search"
-          value={searchName}
-          onChange={(e) => setSearchName(e.target.value)}
-        />
-        <button
-          className="rounded text-white bg-green-500 hover:bg-green-900 px-1 text-center"
-          onClick={Search}
-        >
-          Search
-        </button>
-      </div>
-      <div className="flex flex-col gap-2 p-3">
-        <h1 className="text-xl font-bold leading-tight tracking-tight">
-          Add new character
-        </h1>
-        <input
-          type="text"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
-          placeholder="image"
-          required
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-        />
-        <input
-          type="text"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
-          placeholder="name"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
-          placeholder="gender"
-          required
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-        />
-        <button
-          className="rounded p-1 text-white bg-green-500 hover:bg-green-900 text-center"
-          onClick={check_data}
-        >
-          Add
-        </button>
+
+      <div className="lg:flex justify-center items-center">
+        <div className="flex  gap-2 p-3">
+          <input
+            type="text"
+            className="bg-gray-50 border   border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
+            placeholder="Search"
+            value={searchName}
+            onChange={(e) => setSearchName(e.target.value)}
+          />
+          <button
+            className="rounded text-white bg-green-500 hover:bg-green-900 px-1 text-center"
+            onClick={Search}
+          >
+            Search
+          </button>
+        </div>
+
+        <div className="flex flex-col gap-2 p-3">
+          <h1 className="text-xl font-bold leading-tight tracking-tight">
+            Add new character
+          </h1>
+          <input
+            type="text"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
+            placeholder="image"
+            required
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+          <input
+            type="text"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
+            placeholder="name"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="text"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2"
+            placeholder="gender"
+            required
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          />
+          <button
+            className="rounded p-1 text-white bg-green-500 hover:bg-green-900 text-center"
+            onClick={check_data}
+          >
+            Add
+          </button>
+        </div>
       </div>
 
       <div className="lg:w-9/10">
@@ -121,14 +123,8 @@ function Home() {
                 <div className="flex flex-col gap-5">
                   <p className="text-center">{element.name}</p>
                   <img className="rounded-xl" src={element.image} alt="" />
-                  <Link
-                    className="rounded p-1 text-white bg-green-500 hover:bg-green-900 text-center"
-                    to={`${element.id}`}
-                  >
-                    Read more
-                  </Link>
                 </div>
-              </div>
+              </div>  
             </li>
           ))}
         </ul>
