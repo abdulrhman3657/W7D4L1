@@ -122,6 +122,7 @@ function Home() {
               <div className=" flex flex-col justify-around h-[50vh]  w-[35vh] p-3 rounded bg-white  hover:translate-1 transition delay-50 shadow-2xl">
                 <div className="flex flex-col gap-5">
                   <p className="text-center">{element.name}</p>
+                  <p className="text-center">{element.gender}</p>
                   <img className="rounded-xl" src={element.image} alt="" />
                 </div>
               </div>  
